@@ -12,17 +12,32 @@ public boolean isGreater (int number);
 For each of these signatures, answer the following questions (in writing):
 
 a) What is the method name?
+ play
 b) Does the method return a value? If yes, what is the type of the return value? 
+ void return type
 c) How many parameters does the method have? 
+ 5
 
 Exercise 2.2 Write a method signature for a method named "go." The method has no parameters, and it does not return a value.
-
+ public void go();
 Exercise 2.3 Write a method signature for a method named "process." The method has a parameter of type “int" that is called "number", and it returns a value of type "int."
-
+ public void process(int number);
+ return number;
+ 
 Exercise 2.4 Write a method signature for a method named "isOpen." This method has no parameters and returns a value of type "boolean.”
-
+ public void isOpen();
+ if (boolean isOpen = true)
+   return true;
+ else
+   return false;
+ 
 Exercise 2.5 Write a method call (note: this is a method call, not a signature) for the “play” method from Exercise 2.1. Write another method call for the "addAmount” method from Exercise 2.1. And finally, write a method call for the "compare" method from the same exercise. 
 
+play();
+
+addAmount(7);
+
+compare(7,5,3);
  
 
 II. Reading Documentation
@@ -30,40 +45,178 @@ All the following exercises are intended to be implemented in the Greenfoot scen
 
 Exercise 2.6 Open the editor for class Cat. Change the view of the editor from "Source Code" to "Documentation" view using the control in the top right of the editor window. How many methods does the class Cat have?
 
+12
+
 Exercise 2.7 How many of the Cat's methods return a value?
+
+5
 
 Exercise 2.8 How many parameters does the sleep method have? 
 
- 
+ 1
 
 III. Writing method calls (with and without parameters)
 Exercise 2.9 Try calling some of your cat's methods interactively, by using the cat's popup menu.The interesting methods are all "inherited from Cat."
 
 Exercise 2.10 Is the cat bored? How can you make it not bored?
 
+The cat is bored until you make it do an action such as dance. Once the cat has completed this action it is no longer bored.
+
 Exercise 2.11 Open the editor for class MyCat. (This is where you will write the code for all the following exercises.)
+
+Done.
 
 Exercise 2.12 Make the cat eat when it acts. (That is, in the act method, write a call to the eat method.) Compile. Test by pressing the Act button in the execution controls.
 
+public class MyCat extends Cat
+{
+    /**
+     * Act - do whatever the MyCat wants to do.
+     */
+    public void act()
+    {
+          eat();
+    }    
+}
+
 Exercise 2.13 Make the cat dance. (Don't do this interactively—write code in the act method to do this. When done, click the Act button in the execution controls.)
+
+public class MyCat extends Cat
+{
+    /**
+     * Act - do whatever the MyCat wants to do.
+     */
+    public void act()
+    {
+          dance();
+    }    
+}
 
 Exercise 2.14 Make the cat sleep.
 
+public class MyCat extends Cat
+{
+    /**
+     * Act - do whatever the MyCat wants to do.
+     */
+    public void act()
+    {
+          sleep(10);
+    }    
+}
+
 Exercise 2.15 Make the cat do a routine of your choice, consisting of a number of the available actions in sequence. 
 
- 
+ public class MyCat extends Cat
+{
+    /**
+     * Act - do whatever the MyCat wants to do.
+     */
+    public void act()
+    {
+          sleep(10);
+          eat();
+          dance();
+    }    
+}
 
 IV. If-statements
 Exercise 2.16 Change the act method of your cat so that, when you click Act, if the cat is tired, it sleeps a bit. If it is not tired, it doesn't do anything.
 
+public class MyCat extends Cat
+{
+    /**
+     * Act - do whatever the MyCat wants to do.
+     */
+    public void act()
+    {
+         if (isSleepy()){
+             sleep(5);
+       }
+            
+       else  {
+             wait(5);
+       }
+        }
+}
+
 Exercise 2.17 Change the act method of your cat so that it dances if it is bored. (But only if it is bored.)
 
+public class MyCat extends Cat
+{
+    /**
+     * Act - do whatever the MyCat wants to do.
+     */
+    public void act()
+    {
+         if (isBored()){
+             dance();
+       }
+            
+       else  {
+             wait(5);
+       }
+        }
+}
+
 Exercise 2.18 Change the act method of your cat so that it eats if it is hungry.
+public class MyCat extends Cat
+
+{
+    /**
+     * Act - do whatever the MyCat wants to do.
+     */
+    public void act()
+    {
+         if (isHungry()){
+             eat();
+       }
+            
+       else  {
+             wait(5);
+       }
+        }
+}
 
 Exercise 2.19 Change the act method of your cat to the following: If the cat is tired, it sleeps a bit, and then it shouts hooray. If it is not tired, it just shouts hooray. (For testing, make the cat tired by calling some methods interactively. How can you make the cat tired?)
 
+public class MyCat extends Cat
+{
+    /**
+     * Act - do whatever the MyCat wants to do.
+     */
+    public void act()
+    {
+         if (isSleepy()){
+             sleep(5);
+             shoutHooray();
+       }
+            
+       else  {
+             shoutHooray();
+       }
+        }
+}
+
+You can make the cat tired by making the cat dance.
+
 Exercise 2.20 Write code in the act method to do the following: if your cat is alone, let it sleep. if it is not alone, make it shout "Hooray." Test by placing a second cat into the world before clicking Act. 
 
- 
+ public class MyCat extends Cat
+{
+    /**
+     * Act - do whatever the MyCat wants to do.
+     */
+    public void act()
+    {
+         if (isAlone()){
+             sleep(5);
+       }
+            
+       else  {
+             shoutHooray();
+       }
+        }
+}
 
 Posted Mon Sep 3, 2018 at 10:15 pm
